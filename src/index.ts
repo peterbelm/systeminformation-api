@@ -115,14 +115,14 @@ app.get(baseUri + '/cpuCache', (req, res) => {
     });
 });
 
-app.get(baseUri + '/cpuCurrentspeed', (req, res) => {
-    si.cpuCurrentspeed((data) => {
+app.get(baseUri + '/cpuCurrentSpeed', (req, res) => {
+    si.cpuCurrentSpeed((data) => {
         res.send(data);
     });
 });
-app.get(baseUri + '/cpuCurrentspeed/:id', (req, res) => {
-    si.cpuCurrentspeed((data) => {
-        const cpuID = req.params.id;
+app.get(baseUri + '/cpuCurrentSpeed/:id', (req, res) => {
+    si.cpuCurrentSpeed((data) => {
+        const cpuID : number = parseInt(req.params.id);
         try {
             res.send(data.cores[cpuID].toString());
         } catch (error) {
@@ -139,7 +139,7 @@ app.get(baseUri + '/cpuTemperature', (req, res) => {
 
 app.get(baseUri + '/cpuTemperature/:id', (req, res) => {
     si.cpuTemperature((data) => {
-        const cpuID = req.params.id;
+        const cpuID : number = parseInt(req.params.id);
         try {
             res.send(data.cores[cpuID].toString());
         } catch (error) {
@@ -192,7 +192,7 @@ app.get(baseUri + '/graphics', (req, res) => {
 
 app.get(baseUri + '/graphics/controllers/:id', (req, res) => {
     si.graphics((data) => {
-        const id = req.params.id;
+        const id : number = parseInt(req.params.id);
         const js = data.controllers[id];
         if((typeof js !== 'undefined') && (js !== null)) {
             res.send(js);
@@ -204,7 +204,7 @@ app.get(baseUri + '/graphics/controllers/:id', (req, res) => {
 
 app.get(baseUri + '/graphics/displays/:id', (req, res) => {
     si.graphics((data) => {
-        const id = req.params.id;
+        const id : number = parseInt(req.params.id);
         const js = data.displays[id];
         if((typeof js !== 'undefined') && (js !== null)) {
             res.send(js);
@@ -236,7 +236,7 @@ app.get(baseUri + '/osInfo', (req, res) => {
 });*/
 
 app.get(baseUri + '/versions', (req, res) => {
-    si.versions((data) => {
+    si.versions(null, (data) => {
         res.send(data);
     });
 });
@@ -326,7 +326,7 @@ app.get(baseUri + '/currentLoad', (req, res) => {
 
 app.get(baseUri + '/currentLoad/:id', (req, res) => {
     si.currentLoad((data) => {
-        const cpuID = req.params.id;
+        const cpuID : number = parseInt(req.params.id);
         const js = data.cpus[cpuID];
         if((typeof js !== 'undefined') && (js !== null)) {
             res.send(js);

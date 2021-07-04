@@ -12,7 +12,7 @@
     "express": "^4.16.4",
     "grpc": "^1.15.1",
     "minimist": "^1.2.0",
-    "systeminformation": "^4.0.15"
+    "systeminformation": "^5.7.7"
   },
   "devDependencies": {
     "@types/compression": "0.0.36",
@@ -22,6 +22,7 @@
     "chai": "^4.1.2",
     "chai-http": "^4.2.1",
     "mocha": "^6.0.2",
+    "nodemon": "^2.0.8",
     "typescript": "^3.0.3"
   },
   "scripts": {
